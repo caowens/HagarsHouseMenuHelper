@@ -1,12 +1,14 @@
-import { Button } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import Landing from "./pages/Landing";
 import { Outlet } from "react-router-dom";
 
 function App() {
-
   return (
-    <Outlet />
-  )
+    <div className="flex justify-center items-center px-30 py-10 flex-col">
+      <Typography variant="h1">Hagar's House Menu Helper</Typography>
+      <Outlet />
+    </div>
+  );
 }
 
-export default App
+export default App;
