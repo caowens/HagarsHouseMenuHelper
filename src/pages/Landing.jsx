@@ -14,7 +14,7 @@ export default function Landing(params) {
   const [value, setValue] = useState("none");
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10">
+    <div className="flex flex-col justify-center items-center gap-10 my-20">
       <div className="flex w-full flex-col lg:flex-row">
         <div className="h-full w-full flex-grow place-items-center mr-10">
           <div className="h-80 flex flex-col justify-center items-end gap-4">
