@@ -24,6 +24,8 @@ export default function MenuCard({
 
   const handleOpen = (value) => setSize(value);
 
+  const TABLE_HEAD = ["Ingredient", "Amount", "Measurement"];
+
   const roundToHundredth = (value) => {
     return Number(value.toFixed(2));
   };
@@ -50,7 +52,7 @@ export default function MenuCard({
 
   let consolidatedPortion = [...adultPortion];
   consolidatedPortion.forEach((ingredient, index) => {
-    ingredient.amount = Math.ceil(
+    ingredient.amount = roundToHundredth(
       adultPortion[index].amount +
         portion1[index].amount +
         portion2[index].amount +
@@ -61,7 +63,7 @@ export default function MenuCard({
   return (
     <>
       <div className="mb-3 flex gap-3">
-        <Button onClick={() => handleOpen("xs")} variant="gradient">
+        <Button onClick={() => handleOpen("md")} variant="gradient">
           {`Menu ${id + 1}`}
         </Button>
       </div>
@@ -75,18 +77,73 @@ export default function MenuCard({
           size === "xl" ||
           size === "xxl"
         }
-        size={size || "xs"}
+        size={size || "md"}
         handler={handleOpen}
       >
         <DialogHeader className="text-center flex justify-center">{`Menu ${
           id + 1
         }`}</DialogHeader>
         <DialogBody>
-          <ul className="text-center">
-            {consolidatedPortion.map((ingredient) => (
-              <li>{`${ingredient.ingredient} ${ingredient.amount} ${ingredient.measurement}`}</li>
-            ))}
-          </ul>
+          <table className="w-full min-w-max table-auto text-left">
+            <thead>
+              <tr>
+                {TABLE_HEAD.map((head) => (
+                  <th
+                    key={head}
+                    className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+                  >
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none opacity-70"
+                    >
+                      {head}
+                    </Typography>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {consolidatedPortion.map(({ ingredient, amount, measurement }, index) => {
+                const isLast = index === consolidatedPortion.length - 1;
+                const classes = isLast
+                  ? "p-4"
+                  : "p-4 border-b border-blue-gray-50";
+
+                return (
+                  <tr key={ingredient}>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {ingredient}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {amount}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {measurement}
+                      </Typography>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </DialogBody>
         <DialogFooter className="flex justify-center items-center">
           <Button
