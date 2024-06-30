@@ -4,3 +4,10 @@
   margin: 0 10px;
   height: 320px;
 }
+
+body, html, #root {
+  background-color: #F2F3F4;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}

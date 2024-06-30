@@ -1,6 +1,7 @@
 import { Button, Typography } from "@material-tailwind/react";
 import Landing from "./pages/Landing";
 import { Outlet } from "react-router-dom";
+import './App.css';
 
 function App() {
   return (
