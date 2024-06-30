@@ -164,20 +164,5 @@ export default function MenuCard({
         </DialogFooter>
       </Dialog>
     </>
-    // <Card className="mt-6 w-52">
-    //   <CardBody>
-    //     <Typography variant="h6" color="blue-gray" className="mb-2 text-center">
-    //       {title}
-    //     </Typography>
-    //     <ul className="text-center">
-    //       {consolidatedPortion.map((ingredient) => (
-    //         <li>{`${ingredient.ingredient} ${ingredient.amount} ${ingredient.measurement}`}</li>
-    //       ))}
-    //     </ul>
-    //   </CardBody>
-    //   <CardFooter className="pt-0 justify-center flex">
-    //     <Button>Print</Button>
-    //   </CardFooter>
-    // </Card>
   );
 }
