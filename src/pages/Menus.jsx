@@ -5,23 +5,24 @@ import {
   Checkbox,
   Select,
   Option,
-  Card
+  Card,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import MenuCard from "../components/MenuCard";
 
 export default function Menus() {
   const [value, setValue] = useState("none");
 
   return (
-    <div className="flex justify-center align-center place-items-start h-[80vh] border-solid w-[1100px] border-[1px] rounded-2xl p-8 mt-6 shadow-lg">
-      <div className="border-solid rounded-lg w-full flex flex-col">
+    <div className="flex justify-center align-center place-items-start h-[80vh] w-[1100px] p-8 mt-6">
+      <div className="w-full flex flex-col">
         <div className="flex w-full h-12">
-          <div className="w-5/12 h-auto justify-start border-solid border-[1px] px-2 flex items-center">
-            <Typography variant="p">
+          <div className="w-4/12 h-auto justify-start border-b-[3px] px-2 flex items-center">
+            <Typography variant="small">
               Adults: 2, Kids 0-3: 2, Kids 4-7: 2, Kids 8-11: 2
             </Typography>
           </div>
-          <div className="justify-start w-7/12 h-auto border-solid border-[1px] px-2 flex items-center gap-4">
+          <div className="justify-start w-8/12 h-auto border-b-[3px] px-2 flex items-center gap-4">
             <Typography variant="h6">Selected:</Typography>
             <ChipDismissible text="Nut free" />
             <ChipDismissible text="Dairy free" />
@@ -30,7 +31,7 @@ export default function Menus() {
           </div>
         </div>
         <div className="flex w-full h-full">
-          <div className="w-3/12 h-full justify-center border-solid border-[1px] px-2 flex items-center">
+          <div className="w-3/12 h-max justify-center border-r-[3px] px-2 flex items-center">
             <div className="flex items-center gap-1 flex-col my-4">
               <Typography variant="h6">Food Allergies</Typography>
               <ul>
@@ -58,8 +59,16 @@ export default function Menus() {
               </Select>
             </div>
           </div>
-          <div className="justify-start w-9/12 h-full border-solid border-[1px] px-2 flex items-center gap-4">
-            <Typography variant="h6">Content</Typography>
+          <div className="justify-start w-9/12 h-auto min-h-fit p-8 flex items-center gap-4 flex-wrap">
+            {/* <Typography variant="h6">Content</Typography> */}
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
           </div>
         </div>
       </div>
