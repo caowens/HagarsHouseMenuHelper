@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import MenuCard from "../components/MenuCard";
+import { menus } from "../constants";
 
 export default function Menus() {
   const [value, setValue] = useState("none");
@@ -60,15 +61,17 @@ export default function Menus() {
             </div>
           </div>
           <div className="justify-start w-9/12 h-auto min-h-fit p-8 flex items-center gap-4 flex-wrap">
-            {/* <Typography variant="h6">Content</Typography> */}
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
+            {menus.map((menu, index) => (
+              <MenuCard
+                title={menu.adultPortion.ingredient}
+                menu={menu}
+                key={index}
+                adults={3}
+                p1Count={2}
+                p2Count={6}
+                id={index}
+              />
+            ))}
           </div>
         </div>
       </div>
