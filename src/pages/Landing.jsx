@@ -6,12 +6,22 @@ import {
   Checkbox,
   Button,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FiltersContext } from "../FiltersContext";
 
 export default function Landing(params) {
-  const [value, setValue] = useState("none");
+  const { filters, setFilters } = useContext(FiltersContext);
+  const navigate = useNavigate();
+
+  const handleChange = (field, value) => {
+    setFilters({ ...filters, [field]: value });
+  };
+
+  const handleSearch = () => {
+    navigate("/menus");
+  };
 
   return (
     <div className="flex flex-col justify-center items-center gap-10 my-20">
@@ -27,6 +37,8 @@ export default function Landing(params) {
               </Typography>
               <Input
                 placeholder="# of Adults"
+                value={filters.adults}
+                onChange={(e) => handleChange("adults", e.target.value)}
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -39,6 +51,8 @@ export default function Landing(params) {
               </Typography>
               <Input
                 placeholder="# of children 0-3"
+                value={filters.kids0to3}
+                onChange={(e) => handleChange("kids0to3", e.target.value)}
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -51,6 +65,8 @@ export default function Landing(params) {
               </Typography>
               <Input
                 placeholder="# of children 4-7s"
+                value={filters.kids4to7}
+                onChange={(e) => handleChange("kids4to7", e.target.value)}
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -63,6 +79,8 @@ export default function Landing(params) {
               </Typography>
               <Input
                 placeholder="# of children 8-11"
+                value={filters.kids8to11}
+                onChange={(e) => handleChange("kids8to11", e.target.value)}
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -81,9 +99,9 @@ export default function Landing(params) {
                 Food Allergies
               </Typography>
               <div className="gap-2 w-64 flex">
-                <Checkbox label="Dairy" />
-                <Checkbox label="Gluten" />
-                <Checkbox label="Nuts" />
+                <Checkbox label="Dairy" checked={filters.dairy} onChange={(e) => handleChange("dairy", e.target.checked)} />
+                <Checkbox label="Gluten" checked={filters.gluten} onChange={(e) => handleChange("gluten", e.target.checked)} />
+                <Checkbox label="Nuts" checked={filters.nuts} onChange={(e) => handleChange("nuts", e.target.checked)} />
               </div>
             </div>
             <div className="flex gap-6 items-center">
@@ -92,8 +110,8 @@ export default function Landing(params) {
               </Typography>
               <Select
                 label="Select Need"
-                //   value={value}
-                onChange={(val) => setValue(val)}
+                value={filters.dietary}
+                onChange={(val) => handleChange("dietary", val)}
               >
                 <Option value="none">None</Option>
                 <Option value="vegetarian">Vegetarian</Option>
@@ -105,9 +123,7 @@ export default function Landing(params) {
         </div>
       </div>
 
-      <Link to={`menus`}>
-        <Button>Find menus</Button>
-      </Link>
+        <Button onClick={handleSearch}>Find menus</Button>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import Landing from "./pages/Landing.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Menus from "./pages/Menus.jsx";
 import App from "./App.jsx";
+import { FiltersProvider } from "./FiltersContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <FiltersProvider>
+        <RouterProvider router={router} />
+      </FiltersProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
