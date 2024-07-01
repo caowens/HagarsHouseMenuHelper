@@ -12,7 +12,10 @@ import MenuCard from "../components/MenuCard";
 import { menus } from "../constants";
 
 export default function Menus() {
-  const [value, setValue] = useState("none");
+  const [dairy, setDairy] = useState(false);
+  const [gluten, setGluten] = useState(false);
+  const [nuts, setNuts] = useState(false);
+  const [dietary, setDietary] = useState("none");
 
   return (
     <div className="flex justify-center align-center place-items-start h-[80vh] w-[1100px] p-8 mt-6">
@@ -25,10 +28,14 @@ export default function Menus() {
           </div>
           <div className="justify-start w-8/12 h-auto border-b-[3px] border-black px-2 flex items-center gap-4">
             <Typography variant="h6">Selected:</Typography>
-            <ChipDismissible text="Nut free" />
-            <ChipDismissible text="Dairy free" />
-            <ChipDismissible text="Gluten free" />
-            <ChipDismissible text="Vegetarian" />
+            {dairy && <Chip variant="ghost" value="Dairy free" />}
+            {gluten && <Chip variant="ghost" value="Gluten free" />}
+            {nuts && <Chip variant="ghost" value="Nut free" />}
+            {dietary !== "none" ? (
+              <Chip variant="ghost" value={dietary} />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <div className="flex w-full h-full">
@@ -37,21 +44,26 @@ export default function Menus() {
               <Typography variant="h6">Food Allergies</Typography>
               <ul>
                 <li>
-                  <Checkbox label="Dairy" />
+                  <Checkbox
+                    label="Dairy"
+                    onChange={(val) => setDairy(!dairy)}
+                  />
                 </li>
                 <li>
-                  <Checkbox label="Gluten" />
+                  <Checkbox
+                    label="Gluten"
+                    onChange={(val) => setGluten(!gluten)}
+                  />
                 </li>
                 <li>
-                  <Checkbox label="Nuts" />
+                  <Checkbox label="Nuts" onChange={(val) => setNuts(!nuts)} />
                 </li>
               </ul>
               <Typography variant="h6">Dietary Needs</Typography>
               <Select
                 label="Select Need"
-                //   value={value}
                 size="large"
-                onChange={(val) => setValue(val)}
+                onChange={(val) => setDietary(val)}
               >
                 <Option value="none">None</Option>
                 <Option value="vegetarian">Vegetarian</Option>
