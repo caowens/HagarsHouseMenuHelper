@@ -124,17 +124,3 @@ export default function Menus() {
     </div>
   );
 }
-
-function ChipDismissible({ text }) {
-  const [open, setOpen] = useState(true);
-
-  return (
-    <>
-      <Chip
-        open={open}
-        value={text ? text : "Dismissible"}
-        onClose={() => setOpen(false)}
-      />
-    </>
-  );
-}
