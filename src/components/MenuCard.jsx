@@ -63,8 +63,8 @@ export default function MenuCard({
   return (
     <>
       <div className="mb-3 flex gap-3">
-        <Button onClick={() => handleOpen("md")} variant="gradient">
-          {`Menu ${id + 1}`}
+        <Button onClick={() => handleOpen("md")} variant="gradient" className="w-40">
+          {title}
         </Button>
       </div>
 
@@ -80,9 +80,9 @@ export default function MenuCard({
         size={size || "md"}
         handler={handleOpen}
       >
-        <DialogHeader className="text-center flex justify-center">{`Menu ${
-          id + 1
-        }`}</DialogHeader>
+        <DialogHeader className="text-center flex justify-center">
+          {title}
+        </DialogHeader>
         <DialogBody>
           <table className="w-full min-w-max table-auto text-left">
             <thead>
@@ -104,44 +104,46 @@ export default function MenuCard({
               </tr>
             </thead>
             <tbody>
-              {consolidatedPortion.map(({ ingredient, amount, measurement }, index) => {
-                const isLast = index === consolidatedPortion.length - 1;
-                const classes = isLast
-                  ? "p-4"
-                  : "p-4 border-b border-blue-gray-50";
+              {consolidatedPortion.map(
+                ({ ingredient, amount, measurement }, index) => {
+                  const isLast = index === consolidatedPortion.length - 1;
+                  const classes = isLast
+                    ? "p-4"
+                    : "p-4 border-b border-blue-gray-50";
 
-                return (
-                  <tr key={ingredient}>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {ingredient}
-                      </Typography>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {amount}
-                      </Typography>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {measurement}
-                      </Typography>
-                    </td>
-                  </tr>
-                );
-              })}
+                  return (
+                    <tr key={ingredient}>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {ingredient}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {amount}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {measurement}
+                        </Typography>
+                      </td>
+                    </tr>
+                  );
+                }
+              )}
             </tbody>
           </table>
         </DialogBody>
