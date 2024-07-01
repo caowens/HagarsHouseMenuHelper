@@ -1166,7 +1166,7 @@ const menus = [
     {
         "name": "Chicken Thighs",
         "allergyFree": ["gluten", "dairy"],
-        "dietary": "",
+        "dietary": "none",
         "adultPortion": [
             {
                 "ingredient": "Chicken Thighs",
@@ -1298,8 +1298,8 @@ const menus = [
     },
     {
         "name": "Tofu",
-        "allergyFree": ["nuts", "shellfish"],
-        "dietary": "balanced",
+        "allergyFree": ["nuts"],
+        "dietary": "none",
         "adultPortion": [
             {
                 "ingredient": "Tofu",

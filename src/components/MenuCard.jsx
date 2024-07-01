@@ -8,6 +8,7 @@ import {
   DialogHeader,
   DialogBody,
   DialogFooter,
+  Chip,
 } from "@material-tailwind/react";
 import { useState } from "react";
 
@@ -63,7 +64,11 @@ export default function MenuCard({
   return (
     <>
       <div className="mb-3 flex gap-3">
-        <Button onClick={() => handleOpen("md")} variant="gradient" className="w-40">
+        <Button
+          onClick={() => handleOpen("md")}
+          variant="gradient"
+          className="w-40"
+        >
           {title}
         </Button>
       </div>
@@ -84,6 +89,20 @@ export default function MenuCard({
           {title}
         </DialogHeader>
         <DialogBody>
+          <div className="flex gap-2 -mt-6 mb-4 justify-center">
+            {menu.allergyFree.includes("dairy") && (
+              <Chip variant="ghost" value="Dairy free" />
+            )}
+            {menu.allergyFree.includes("gluten") && (
+              <Chip variant="ghost" value="Gluten free" />
+            )}
+            {menu.allergyFree.includes("nuts") && (
+              <Chip variant="ghost" value="Nut free" />
+            )}
+            {menu.dietary !== "none" && (
+              <Chip variant="ghost" value={menu.dietary} />
+            )}
+          </div>
           <table className="w-full min-w-max table-auto text-left">
             <thead>
               <tr>
