@@ -10,6 +10,7 @@ import { useState, useContext } from "react";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FiltersContext } from "../FiltersContext";
+import { db, getMenus } from "../firebase/firebase";
 
 export default function Landing(params) {
   const { filters, setFilters } = useContext(FiltersContext);
@@ -21,6 +22,15 @@ export default function Landing(params) {
 
   const handleSearch = () => {
     navigate("/menus");
+  };
+
+  const handleMenus = async () => {
+    try {
+      const menus = await getMenus(db);
+      console.log(menus);
+    } catch (error) {
+      console.error("Error fetching menus: ", error);
+    }
   };
 
   return (
@@ -119,6 +129,8 @@ export default function Landing(params) {
                 <Option value="pescatarian">Pescatarian</Option>
               </Select>
             </div>
+
+            <Button onClick={handleMenus}>Print menus</Button>
           </div>
         </div>
       </div>
