@@ -9,28 +9,50 @@ import {
 } from "@material-tailwind/react";
 import { useState, useEffect, useContext } from "react";
 import MenuCard from "../components/MenuCard";
-import { menus } from "../constants";
+import { getMenus, db } from "../firebase/firebase";
 import { Link } from "react-router-dom";
 import { FiltersContext } from "../FiltersContext";
 
 export default function Menus() {
     const { filters, setFilters } = useContext(FiltersContext);
+    const [menus, setMenus] = useState([]);
     const [filteredMenus, setFilteredMenus] = useState([]);
+    const [loading, setLoading] = useState(true);
 
+    // Fetch menus when the component mounts
     useEffect(() => {
+      const fetchMenus = async () => {
+        try {
+          const fetchedMenus = await getMenus(db);
+          setMenus(fetchedMenus);
+          setLoading(false);
+        } catch (error) {
+          console.error("Error fetching menus: ", error);
+          setLoading(false);
+        }
+      };
+
+      fetchMenus();
+    }, []);
+
+    // Apply filters whenever filters or menus change
+    useEffect(() => {
+      if (!loading) {
         const applyFilters = () => {
-            const filtered = menus.filter((menu) => {
-                if (filters.dairy && !menu.allergyFree.includes("dairy")) return false;
-                if (filters.gluten && !menu.allergyFree.includes("gluten")) return false;
-                if (filters.nuts && !menu.allergyFree.includes("nuts")) return false;
-                if (filters.dietary !== 'none' && menu.dietary !== filters.dietary) return false;
-                return true;
-            });
-            setFilteredMenus(filtered);
+          const filtered = menus.filter((menu) => {
+            if (filters.dairy && !menu.allergyFree.includes("dairy")) return false;
+            if (filters.gluten && !menu.allergyFree.includes("gluten")) return false;
+            if (filters.nuts && !menu.allergyFree.includes("nuts")) return false;
+            if (filters.dietary !== "none" && menu.dietary !== filters.dietary)
+              return false;
+            return true;
+          });
+          setFilteredMenus(filtered);
         };
 
         applyFilters();
-    }, [filters]);
+      }
+    }, [filters, menus, loading]);
 
     const handleCheckboxChange = (field) => {
         setFilters({ ...filters, [field]: !filters[field] });
@@ -39,6 +61,10 @@ export default function Menus() {
     const handleSelectChange = (value) => {
         setFilters({ ...filters, dietary: value });
     };
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
   return (
     <div className="flex flex-col">

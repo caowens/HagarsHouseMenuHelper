@@ -10,7 +10,7 @@ import { useState, useContext } from "react";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FiltersContext } from "../FiltersContext";
-import { db, getMenus } from "../firebase/firebase";
+// import { db, getMenus } from "../firebase/firebase";
 
 export default function Landing(params) {
   const { filters, setFilters } = useContext(FiltersContext);
@@ -24,14 +24,50 @@ export default function Landing(params) {
     navigate("/menus");
   };
 
-  const handleMenus = async () => {
-    try {
-      const menus = await getMenus(db);
-      console.log(menus);
-    } catch (error) {
-      console.error("Error fetching menus: ", error);
-    }
-  };
+  // const handleMenus = async () => {
+  //   try {
+  //     const menus = await getMenus(db);
+  //     console.log(menus);
+  //   } catch (error) {
+  //     console.error("Error fetching menus: ", error);
+  //   }
+  // };
+
+  // const addMenu = async () => {
+  //   // Add a document with a generated ID.
+  //   try {
+  //     const docRef = await addDoc(collection(db, "menus"), {
+  //       first: "Alan",
+  //       middle: "Mathison",
+  //       last: "Turing",
+  //       born: 1912
+  //     });
+    
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
+  // };
+
+  // const addAllMenus = async () => {
+  //   for (const menu of menus) {
+  //     try {
+  //       const docRef = await addDoc(collection(db, "menus"), {
+  //         name: menu.name,
+  //         allergyFree: menu.allergyFree,
+  //         dietary: menu.dietary,
+  //         adultPortion: menu.adultPortion,
+  //         portion1: menu.portion1,
+  //         portion2: menu.portion2,
+  //         portion3: menu.portion3
+  //       });
+      
+  //       console.log("Document written with ID: ", docRef.id);
+  //     } catch (e) {
+  //       console.error("Error adding document: ", e);
+  //     }
+  //   }
+  // }
 
   return (
     <div className="flex flex-col justify-center items-center gap-10 my-20">
@@ -130,7 +166,9 @@ export default function Landing(params) {
               </Select>
             </div>
 
-            <Button onClick={handleMenus}>Print menus</Button>
+            {/* <Button onClick={handleMenus}>Print menus</Button>
+            <Button onClick={addMenu}>Add menu</Button>
+            <Button onClick={addAllMenus}>Add all menus</Button> */}
           </div>
         </div>
       </div>
