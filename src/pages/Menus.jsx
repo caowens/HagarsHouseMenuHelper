@@ -6,6 +6,7 @@ import {
   Select,
   Option,
   Card,
+  Spinner,
 } from "@material-tailwind/react";
 import { useState, useEffect, useContext } from "react";
 import MenuCard from "../components/MenuCard";
@@ -63,7 +64,9 @@ export default function Menus() {
     };
 
     if (loading) {
-      return <div>Loading...</div>;
+      return <div className="flex justify-center items-center h-screen w-auto">
+        <Spinner className="h-2/6 w-auto" />
+      </div>;
     }
 
   return (
