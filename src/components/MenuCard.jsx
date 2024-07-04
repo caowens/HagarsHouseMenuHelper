@@ -10,7 +10,8 @@ import {
   DialogFooter,
   Chip,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 export default function MenuCard({
   title,
@@ -30,6 +31,11 @@ export default function MenuCard({
   const roundToHundredth = (value) => {
     return Number(value.toFixed(2));
   };
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   let adultPortion = JSON.parse(JSON.stringify(menu.adultPortion));
   adultPortion.forEach((ingredient) => {
@@ -84,6 +90,7 @@ export default function MenuCard({
         }
         size={size || "md"}
         handler={handleOpen}
+        ref={componentRef}
       >
         <DialogHeader className="text-center flex justify-center">
           {title}
@@ -178,7 +185,7 @@ export default function MenuCard({
           <Button
             variant="gradient"
             color="black"
-            onClick={() => handleOpen(null)}
+            onClick={handlePrint}
           >
             <span>Print</span>
           </Button>
