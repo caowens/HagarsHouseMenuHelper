@@ -70,8 +70,8 @@ export default function Menus() {
     }
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-center align-center place-items-start h-[80vh] w-[1100px] px-8">
+    <div className="flex flex-col mt-8">
+      <div className="flex justify-center align-center place-items-start h-[80vh] w-auto xl:w-[1100px] px-8">
         <div className="w-full flex flex-col">
           <div className="flex w-full border-b-[3px] border-black h-12">
             <div className="w-6/12 h-auto justify-start px-2 flex items-center">
