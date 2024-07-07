@@ -25,7 +25,7 @@ export default function Landing(params) {
     navigate("/menus");
   };
 
-  const isMdUp = useMediaQuery('(min-width: 768px)');
+  const isMdUp = useMediaQuery('(min-width: 821px)');
 
   // const handleMenus = async () => {
   //   try {
