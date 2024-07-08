@@ -182,11 +182,7 @@ export default function MenuCard({
           >
             <span>Close</span>
           </Button>
-          <Button
-            variant="gradient"
-            color="black"
-            onClick={handlePrint}
-          >
+          <Button variant="gradient" color="black" onClick={handlePrint}>
             <span>Print</span>
           </Button>
         </DialogFooter>

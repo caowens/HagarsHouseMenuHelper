@@ -25,7 +25,7 @@ export default function Landing(params) {
     navigate("/menus");
   };
 
-  const isMdUp = useMediaQuery('(min-width: 821px)');
+  const isMdUp = useMediaQuery("(min-width: 821px)");
 
   // const handleMenus = async () => {
   //   try {
@@ -45,7 +45,7 @@ export default function Landing(params) {
   //       last: "Turing",
   //       born: 1912
   //     });
-    
+
   //     console.log("Document written with ID: ", docRef.id);
   //   } catch (e) {
   //     console.error("Error adding document: ", e);
@@ -64,7 +64,7 @@ export default function Landing(params) {
   //         portion2: menu.portion2,
   //         portion3: menu.portion3
   //       });
-      
+
   //       console.log("Document written with ID: ", docRef.id);
   //     } catch (e) {
   //       console.error("Error adding document: ", e);
@@ -148,9 +148,21 @@ export default function Landing(params) {
                 Food Allergies
               </Typography>
               <div className="gap-2 flex">
-                <Checkbox label="Dairy" checked={filters.dairy} onChange={(e) => handleChange("dairy", e.target.checked)} />
-                <Checkbox label="Gluten" checked={filters.gluten} onChange={(e) => handleChange("gluten", e.target.checked)} />
-                <Checkbox label="Nuts" checked={filters.nuts} onChange={(e) => handleChange("nuts", e.target.checked)} />
+                <Checkbox
+                  label="Dairy"
+                  checked={filters.dairy}
+                  onChange={(e) => handleChange("dairy", e.target.checked)}
+                />
+                <Checkbox
+                  label="Gluten"
+                  checked={filters.gluten}
+                  onChange={(e) => handleChange("gluten", e.target.checked)}
+                />
+                <Checkbox
+                  label="Nuts"
+                  checked={filters.nuts}
+                  onChange={(e) => handleChange("nuts", e.target.checked)}
+                />
               </div>
             </div>
             <div className="flex gap-6 items-center flex-col sm:flex-row">
@@ -176,7 +188,9 @@ export default function Landing(params) {
         </div>
       </div>
 
-        <Button className="-mt-4" onClick={handleSearch}>Find menus</Button>
+      <Button className="-mt-4" onClick={handleSearch}>
+        Find menus
+      </Button>
     </div>
   );
 }
