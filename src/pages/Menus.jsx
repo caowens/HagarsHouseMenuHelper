@@ -65,35 +65,35 @@ export default function Menus() {
 
     if (loading) {
       return <div className="flex justify-center items-center h-screen w-auto">
-        <Spinner className="h-2/6 w-auto" />
+        <Spinner className="h-1/6 sm:h-2/6 w-auto" />
       </div>;
     }
 
   return (
     <div className="flex flex-col mt-8">
-      <div className="flex justify-center align-center place-items-start h-[80vh] w-auto xl:w-[1100px] px-8">
+      <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-8">
         <div className="w-full flex flex-col">
-          <div className="flex w-full border-b-[3px] border-black h-12">
-            <div className="w-6/12 h-auto justify-start px-2 flex items-center">
+          <div className="flex flex-col sm:flex-row w-full sm:border-b-[3px] border-black sm:h-12">
+            <div className="sm:w-6/12 h-auto text-center justify-center sm:justify-start px-2 flex items-center">
               <Typography variant="small">
                 Adults: {filters.adults}, Kids 0-3: {filters.kids0to3}, Kids 4-7: {filters.kids4to7}, Kids 8-11: {filters.kids8to11}
               </Typography>
             </div>
-            <div className="justify-start w-full h-auto px-2 flex items-center gap-4">
+            <div className="justify-start sm:w-full h-auto px-2 flex items-center my-2 sm:my-0 gap-4 flex-wrap">
               <Typography variant="h6">Selected:</Typography>
               {filters.dairy && <Chip variant="ghost" value="Dairy free" />}
               {filters.gluten && <Chip variant="ghost" value="Gluten free" />}
               {filters.nuts && <Chip variant="ghost" value="Nut free" />}
               {filters.dietary !== "none" && <Chip variant="ghost" value={filters.dietary} />}
             </div>
-            <div className="">
+            <div className="order-first mb-4 sm:mb-0 sm:order-none">
               <Link to={`/`}>
                 <Button variant="outlined">Back</Button>
               </Link>
             </div>
           </div>
-          <div className="flex w-full h-full">
-            <div className="w-3/12 h-max justify-center border-r-[3px] border-black px-2 flex items-center">
+          <div className="flex flex-col sm:flex-row sm:w-full sm:h-full">
+            <div className="sm:w-3/12 h-max justify-center sm:border-r-[3px] border-black px-2 flex items-center">
               <div className="flex items-center gap-1 flex-col my-4">
                 <Typography variant="h6">Food Allergies</Typography>
                 <ul>
@@ -133,7 +133,7 @@ export default function Menus() {
                 </Select>
               </div>
             </div>
-            <div className="justify-start w-9/12 h-auto min-h-fit p-8 flex items-center gap-4 flex-wrap">
+            <div className="justify-center sm:justify-start sm:w-9/12 h-auto sm:min-h-fit p-8 flex items-center gap-4 flex-wrap">
               {filteredMenus.map((menu, index) => (
                 <MenuCard
                   title={menu.name}
