@@ -20,7 +20,6 @@ export default function MenuCard({
   p1Count = 0,
   p2Count = 0,
   p3Count = 0,
-  id,
 }) {
   const [size, setSize] = useState(null);
 
@@ -37,35 +36,9 @@ export default function MenuCard({
     content: () => componentRef.current,
   });
 
-  let adultPortion = JSON.parse(JSON.stringify(menu.adultPortion));
-  adultPortion.forEach((ingredient) => {
-    ingredient.amount *= adults;
-  });
-
-  let portion1 = JSON.parse(JSON.stringify(menu.portion1));
-  portion1.forEach((ingredient) => {
-    ingredient.amount *= p1Count;
-  });
-
-  let portion2 = JSON.parse(JSON.stringify(menu.portion2));
-  portion2.forEach((ingredient) => {
-    ingredient.amount *= p2Count;
-  });
-
-  let portion3 = JSON.parse(JSON.stringify(menu.portion3));
-  portion3.forEach((ingredient) => {
-    ingredient.amount *= p3Count;
-  });
-
-  let consolidatedPortion = [...adultPortion];
-  consolidatedPortion.forEach((ingredient, index) => {
-    ingredient.amount = roundToHundredth(
-      adultPortion[index].amount +
-        portion1[index].amount +
-        portion2[index].amount +
-        portion3[index].amount
-    );
-  });
+  // Get all of the menu items
+  let menuItem = menu.MenuItems;
+  let consolidatedServings = [...menuItem];
 
   return (
     <>
@@ -97,13 +70,13 @@ export default function MenuCard({
         </DialogHeader>
         <DialogBody>
           <div className="flex gap-2 -mt-6 mb-4 justify-center">
-            {menu.allergyFree.includes("dairy") && (
+            {menu.allargyFree && menu.allergyFree.includes("dairy") && (
               <Chip variant="ghost" value="Dairy free" />
             )}
-            {menu.allergyFree.includes("gluten") && (
+            {menu.allargyFree && menu.allergyFree.includes("gluten") && (
               <Chip variant="ghost" value="Gluten free" />
             )}
-            {menu.allergyFree.includes("nuts") && (
+            {menu.allargyFree && menu.allergyFree.includes("nuts") && (
               <Chip variant="ghost" value="Nut free" />
             )}
             {menu.dietary !== "none" && (
@@ -130,22 +103,38 @@ export default function MenuCard({
               </tr>
             </thead>
             <tbody>
-              {consolidatedPortion.map(
-                ({ ingredient, amount, measurement }, index) => {
-                  const isLast = index === consolidatedPortion.length - 1;
+              {consolidatedServings.map(
+                (
+                  {
+                    adultServing,
+                    teenServing,
+                    childServing,
+                    toddlerServing,
+                    name,
+                    unit,
+                  },
+                  index
+                ) => {
+                  const isLast = index === consolidatedServings.length - 1;
                   const classes = isLast
                     ? "p-4"
                     : "p-4 border-b border-blue-gray-50";
 
+                  let servingSize =
+                    (adultServing * adults) +
+                    (teenServing * p3Count) +
+                    (childServing * p2Count) +
+                    (toddlerServing * p1Count);
+
                   return (
-                    <tr key={ingredient}>
+                    <tr key={name}>
                       <td className={classes}>
                         <Typography
                           variant="small"
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {ingredient}
+                          {name}
                         </Typography>
                       </td>
                       <td className={classes}>
@@ -154,7 +143,7 @@ export default function MenuCard({
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {amount}
+                          {servingSize}
                         </Typography>
                       </td>
                       <td className={classes}>
@@ -163,7 +152,7 @@ export default function MenuCard({
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {measurement}
+                          {unit}
                         </Typography>
                       </td>
                     </tr>
