@@ -126,6 +126,8 @@ export default function MenuCard({
                     (childServing * p2Count) +
                     (toddlerServing * p1Count);
 
+                  let roundedServingSize = Math.ceil(servingSize);
+
                   return (
                     <tr key={name}>
                       <td className={classes}>
@@ -143,7 +145,7 @@ export default function MenuCard({
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {servingSize}
+                          {roundedServingSize}
                         </Typography>
                       </td>
                       <td className={classes}>
