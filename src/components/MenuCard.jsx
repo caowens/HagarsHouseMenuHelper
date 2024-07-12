@@ -68,7 +68,7 @@ export default function MenuCard({
         <DialogHeader className="text-center flex justify-center">
           {title}
         </DialogHeader>
-        <DialogBody>
+        <DialogBody className="max-h-[500px] overflow-y-auto">
           <div className="flex gap-2 -mt-6 mb-4 justify-center">
             {menu.allargyFree && menu.allergyFree.includes("dairy") && (
               <Chip variant="ghost" value="Dairy free" />
@@ -130,7 +130,9 @@ export default function MenuCard({
 
                   return (
                     <tr key={name}>
-                      <td className={classes}>
+                      <td
+                        className={`${classes} break-words whitespace-normal`}
+                      >
                         <Typography
                           variant="small"
                           color="blue-gray"
@@ -139,7 +141,9 @@ export default function MenuCard({
                           {name}
                         </Typography>
                       </td>
-                      <td className={classes}>
+                      <td
+                        className={`${classes} break-words whitespace-normal`}
+                      >
                         <Typography
                           variant="small"
                           color="blue-gray"
@@ -148,7 +152,9 @@ export default function MenuCard({
                           {roundedServingSize}
                         </Typography>
                       </td>
-                      <td className={classes}>
+                      <td
+                        className={`${classes} break-words whitespace-normal`}
+                      >
                         <Typography
                           variant="small"
                           color="blue-gray"
