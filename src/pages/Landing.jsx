@@ -80,7 +80,7 @@ export default function Landing(params) {
             <Typography variant="h4" className="text-center">
               How many?
             </Typography>
-            <div className="flex flex-col gap-4 sm:gap-6 items-center">
+            <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
                 Adult
               </Typography>
@@ -94,7 +94,7 @@ export default function Landing(params) {
                 }}
               />
             </div>
-            <div className="flex flex-col gap-4 sm:gap-6 items-center">
+            <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
                 Child aged 0-3
               </Typography>
@@ -108,7 +108,7 @@ export default function Landing(params) {
                 }}
               />
             </div>
-            <div className="flex flex-col gap-4 sm:gap-6 items-center">
+            <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
                 Child aged 4-7
               </Typography>
@@ -122,7 +122,7 @@ export default function Landing(params) {
                 }}
               />
             </div>
-            <div className="flex flex-col gap-4 sm:gap-6 items-center">
+            <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
                 Child aged 8-11
               </Typography>
@@ -140,7 +140,7 @@ export default function Landing(params) {
         </div>
       </div>
 
-      <Button className="mt-20" onClick={handleSearch}>
+      <Button className="sm:mt-8 mt-16" onClick={handleSearch}>
         Find menus
       </Button>
     </div>
