@@ -64,6 +64,7 @@ export default function MenuCard({
         size={size || "md"}
         handler={handleOpen}
         ref={componentRef}
+        className="menu-card"
       >
         <DialogHeader className="text-center flex justify-center">
           {title}
@@ -170,7 +171,7 @@ export default function MenuCard({
             </tbody>
           </table>
         </DialogBody>
-        <DialogFooter className="flex justify-center items-center">
+        <DialogFooter className="flex justify-center items-center hide-print">
           <Button
             variant="text"
             color="blue-gray"
