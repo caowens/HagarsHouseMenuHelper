@@ -1,10 +1,11 @@
 // FiltersContext.js
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
+import usePersistedState from './usePersistedState';
 
 export const FiltersContext = createContext();
 
 export const FiltersProvider = ({ children }) => {
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = usePersistedState('filters', {
     adults: 0,
     kids0to3: 0,
     kids4to7: 0,
