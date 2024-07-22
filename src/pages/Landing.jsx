@@ -82,7 +82,7 @@ export default function Landing(params) {
             </Typography>
             <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
-                Adult
+                Adult and Child 12-17
               </Typography>
               <Input
                 placeholder="# of Adults"
