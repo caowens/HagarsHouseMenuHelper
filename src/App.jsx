@@ -13,7 +13,7 @@ function App() {
   }, [isMdUp]);
 
   return (
-    <div className="flex justify-center items-center px-30 py-10 flex-col text-center">
+    <div className="flex justify-center items-center px-30 py-10 flex-col text-center">  { /* This is tailwind */ }
       <Typography variant={variant}>Hagar's House {isMdUp ? `` : <br />}Menu Helper</Typography>
       <Outlet />
     </div>
