@@ -25,7 +25,7 @@ export default function MenuCard({
 
   const handleOpen = (value) => setSize(value);
 
-  const TABLE_HEAD = ["Ingredient", "Amount", "Measurement"];
+  const TABLE_HEAD = ["Entrees / Sides", "Amount", "Unit"];
 
   const roundToHundredth = (value) => {
     return Number(value.toFixed(2));
@@ -95,7 +95,7 @@ export default function MenuCard({
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal leading-none opacity-70"
+                      className="font-bold leading-none opacity-70"
                     >
                       {head}
                     </Typography>
@@ -137,7 +137,7 @@ export default function MenuCard({
                         <Typography
                           variant="small"
                           color="blue-gray"
-                          className="font-normal"
+                          className="font-bold"
                         >
                           {name}
                         </Typography>
