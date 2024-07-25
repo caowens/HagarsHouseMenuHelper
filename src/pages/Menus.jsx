@@ -79,9 +79,9 @@ export default function Menus() {
         <div className="w-full flex flex-col">
           <div className="flex flex-col sm:flex-row w-full sm:border-b-[3px] justify-between border-black sm:h-12">
             <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center">
-              <Typography variant="small">
-                Adults: {filters.adults}, Kids 0-3: {filters.kids0to3}, Kids
-                4-7: {filters.kids4to7}, Kids 8-11: {filters.kids8to11}
+              <Typography variant="medium">
+                Adults & Teens: {filters.adults} / Kids 0-3: {filters.kids0to3} / Kids
+                4-7: {filters.kids4to7} / Kids 8-11: {filters.kids8to11}
               </Typography>
             </div>
             <div className="order-first mb-4 sm:mb-0 sm:order-none">
