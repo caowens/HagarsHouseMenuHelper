@@ -29,3 +29,9 @@ body, html, #root {
     display: none;
   }
 }
+
+.banner {
+  background-image: url('./assets/download-7.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

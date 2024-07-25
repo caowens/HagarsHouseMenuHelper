@@ -14,7 +14,9 @@ function App() {
 
   return (
     <div className="flex justify-center items-center px-30 py-10 flex-col text-center">  { /* This is tailwind */ }
-      <Typography variant={variant}>DCM Hagar's House {isMdUp ? `` : <br />}Menu Helper</Typography>
+      <div className="banner w-full h-auto py-10 -mt-10">
+        <Typography variant={variant}>Hagar's House {isMdUp ? `` : <br />}Menu Helper</Typography>
+      </div>
       <Outlet />
     </div>
   );

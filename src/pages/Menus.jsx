@@ -98,7 +98,7 @@ export default function Menus() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row sm:w-full sm:h-full">
+          <div className="flex flex-col sm:flex-row sm:w-full sm:h-full justify-center">
             <div className="justify-center sm:justify-start sm:w-9/12 h-auto sm:min-h-fit p-8 flex items-center gap-4 flex-wrap">
               {filteredMenus.map((menu, index) => (
                 <MenuCard
