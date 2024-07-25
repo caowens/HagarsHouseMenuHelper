@@ -78,10 +78,18 @@ export default function Menus() {
       <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-8">
         <div className="w-full flex flex-col">
           <div className="flex flex-col sm:flex-row w-full sm:border-b-[3px] justify-between border-black sm:h-12">
-            <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center">
+            <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center gap-6">
               <Typography variant="medium">
-                Adults & Teens: {filters.adults} / Kids 0-3: {filters.kids0to3} / Kids
-                4-7: {filters.kids4to7} / Kids 8-11: {filters.kids8to11}
+                Children (0-3): <strong>{filters.kids0to3}</strong>
+              </Typography>
+              <Typography variant="medium">
+                Children (4-7): <strong>{filters.kids4to7}</strong>
+              </Typography>
+              <Typography variant="medium">
+                Children (8-11): <strong>{filters.kids8to11}</strong>
+              </Typography>
+              <Typography variant="medium">
+                Adults & Children (12-17): <strong>{filters.adults}</strong>
               </Typography>
             </div>
             <div className="order-first mb-4 sm:mb-0 sm:order-none">
