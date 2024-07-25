@@ -14,8 +14,11 @@ function App() {
 
   return (
     <div className="flex justify-center items-center px-30 py-10 flex-col text-center">  { /* This is tailwind */ }
-      <div className="banner w-full h-auto py-10 -mt-10">
-        <Typography variant={variant}>Hagar's House {isMdUp ? `` : <br />}Menu Helper</Typography>
+      <div className="flex flex-col sm:flex-row justify-center bg-image w-full h-auto py-10">
+        <div className="logo h-[100px] w-[100px] self-center sm:ml-16 mr-0"></div>
+        <div className="w-full h-auto align-middle justify-center self-center">
+          <Typography variant={variant}>Hagar's House {isMdUp ? `` : <br />}Menu Helper</Typography>
+        </div>
       </div>
       <Outlet />
     </div>

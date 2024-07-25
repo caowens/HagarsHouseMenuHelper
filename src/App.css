@@ -30,8 +30,12 @@ body, html, #root {
   }
 }
 
-.banner {
+.bg-image {
   background-image: url('./assets/download-7.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.logo {
+  border: solid purple 2px;
 }
