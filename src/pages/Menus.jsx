@@ -74,11 +74,12 @@ export default function Menus() {
   }
 
   return (
-    <div className="flex flex-col mt-8">
-      <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-8">
+    <div className="flex flex-col mt-0">
+      <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-0 " >
         <div className="w-full flex flex-col">
-          <div className="flex flex-col sm:flex-row w-full sm:border-b-[3px] justify-between border-black sm:h-12">
-            <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row w-full sm:border-b-[3px] justify-between border-black sm:h-12 bg-orange-50">
+            <div className="w-4 sm:block hidden" />
+            <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center gap-4 sm:gap-10 ">
               <Typography variant="medium">
                 Children (0-3): <strong>{filters.kids0to3}</strong>
               </Typography>
@@ -89,7 +90,7 @@ export default function Menus() {
                 Children (8-11): <strong>{filters.kids8to11}</strong>
               </Typography>
               <Typography variant="medium">
-                Adults & Children (12-17): <strong>{filters.adults}</strong>
+              Adults&Children (12-17): <strong>{filters.adults}</strong>
               </Typography>
             </div>
             <div className="order-first mb-4 sm:mb-0 sm:order-none">
@@ -98,7 +99,7 @@ export default function Menus() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row sm:w-full sm:h-full justify-center">
+          <div className="flex flex-col sm:flex-row sm:w-full sm:h-full justify-center bg-orange-100 border-2 border-black">
             <div className="justify-center sm:justify-start sm:w-9/12 h-auto sm:min-h-fit p-8 flex items-center gap-4 flex-wrap">
               {filteredMenus.map((menu, index) => (
                 <MenuCard
