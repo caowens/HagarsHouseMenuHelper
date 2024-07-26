@@ -73,7 +73,7 @@ export default function Landing(params) {
   // }
 
   return (
-    <div className="flex flex-col justify-center items-center sm:gap-10 mt-20 sm:my-20">
+    <div className="flex flex-col justify-center items-center sm:gap-10 mt-20 sm:my-20 sm:w-100 w-full">
       <div className="flex w-full flex-col lg:flex-row">
         <div className="h-full w-full flex-grow place-items-center">
           <div className="h-80 flex flex-col justify-center items-center gap-4">
@@ -81,23 +81,9 @@ export default function Landing(params) {
               How many?
             </Typography>
     
-            <div className="flex flex-col gap-2 items-center">
+             <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
-                Adult
-              </Typography>
-              <Input
-                placeholder="# of Adults"
-                value={filters.adults}
-                onChange={(e) => handleChange("adults", e.target.value)}
-                className="!border-t-blue-gray-200 text-center focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-            </div>
-            <div className="flex flex-col gap-2 items-center">
-              <Typography className="w-full" variant="h6">
-                Child aged 0-3
+                Children (Ages 0-3)
               </Typography>
               <Input
                 placeholder="# of children 0-3"
@@ -111,7 +97,7 @@ export default function Landing(params) {
             </div>
             <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
-                Children (Aged 4-7)
+                Children (Ages 4-7)
               </Typography>
               <Input
                 placeholder="# of children 4-7s"
@@ -125,7 +111,7 @@ export default function Landing(params) {
             </div>
             <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
-                Children (Aged 8-11)
+                Children (Ages 8-11)
               </Typography>
               <Input
                 placeholder="# of children 8-11"
@@ -137,6 +123,21 @@ export default function Landing(params) {
                 }}
               />
             </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Typography className="w-full" variant="h6">
+                Children (Ages 12-17) & Adults
+              </Typography>
+              <Input
+                placeholder="# of Adults"
+                value={filters.adults}
+                onChange={(e) => handleChange("adults", e.target.value)}
+                className="!border-t-blue-gray-200 text-center focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+
           </div>
         </div>
       </div>

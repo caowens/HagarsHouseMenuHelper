@@ -31,7 +31,7 @@ body, html, #root {
 }
 
 .bg-image {
-  background-image: url('./assets/download-7.jpeg');
+  background-image: url('./assets/house-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
