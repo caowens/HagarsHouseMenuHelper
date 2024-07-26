@@ -1,5 +1,5 @@
 // FiltersContext.js
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import usePersistedState from './usePersistedState';
 
 export const FiltersContext = createContext();
@@ -16,8 +16,10 @@ export const FiltersProvider = ({ children }) => {
     dietary: 'none'
   });
 
+  const [fromMenus, setFromMenus] = useState(false);
+
   return (
-    <FiltersContext.Provider value={{ filters, setFilters }}>
+    <FiltersContext.Provider value={{ filters, setFilters, fromMenus, setFromMenus }}>
       {children}
     </FiltersContext.Provider>
   );

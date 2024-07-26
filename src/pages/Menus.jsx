@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import { FiltersContext } from "../FiltersContext";
 
 export default function Menus() {
-  const { filters, setFilters } = useContext(FiltersContext);
+  const { filters, setFilters, setFromMenus } = useContext(FiltersContext);
   const [menus, setMenus] = useState([]);
   const [filteredMenus, setFilteredMenus] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -73,6 +73,10 @@ export default function Menus() {
     );
   }
 
+  const handleBackClick = () => {
+    setFromMenus(true);
+  };
+
   return (
     <div className="flex flex-col mt-0">
       <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-0 " >
@@ -95,7 +99,7 @@ export default function Menus() {
             </div>
             <div className="order-first mb-2 mt-3 sm:my-1 sm:order-none">
               <Link to={`/`}>
-                <Button variant="outlined">Back</Button>
+                <Button variant="outlined" onClick={handleBackClick}>Back</Button>
               </Link>
             </div>
           </div>

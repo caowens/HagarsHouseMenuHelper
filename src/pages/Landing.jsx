@@ -6,7 +6,7 @@ import {
   Checkbox,
   Button,
 } from "@material-tailwind/react";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FiltersContext } from "../FiltersContext";
@@ -14,8 +14,24 @@ import { useMediaQuery } from "@mui/material";
 // import { db, getMenus } from "../firebase/firebase";
 
 export default function Landing(params) {
-  const { filters, setFilters } = useContext(FiltersContext);
+  const { filters, setFilters, fromMenus, setFromMenus } = useContext(FiltersContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!fromMenus) {
+      setFilters({
+        adults: 0,
+        kids0to3: 0,
+        kids4to7: 0,
+        kids8to11: 0,
+        dairy: false,
+        gluten: false,
+        nuts: false,
+        dietary: 'none'
+      });
+    }
+    setFromMenus(false); // Reset the fromMenus state
+  }, []);
 
   const handleChange = (field, value) => {
     setFilters({ ...filters, [field]: value });
