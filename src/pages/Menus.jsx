@@ -77,23 +77,23 @@ export default function Menus() {
     <div className="flex flex-col mt-0">
       <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-0 " >
         <div className="w-full flex flex-col">
-          <div className="flex flex-col sm:flex-row w-full sm:border-b-[3px] justify-between border-black sm:h-12 bg-orange-50">
+          <div className="flex flex-col sm:flex-row w-full sm:border-b-[0px] sm:my-3 justify-between border-black sm:h-12 bg-orange-50">
             <div className="w-4 sm:block hidden" />
             <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center gap-4 sm:gap-10 ">
               <Typography variant="medium">
                 Children (0-3): <strong>{filters.kids0to3}</strong>
               </Typography>
               <Typography variant="medium">
-                Children (4-7): <strong>{filters.kids4to7}</strong>
+                Children (4-8): <strong>{filters.kids4to7}</strong>
               </Typography>
               <Typography variant="medium">
-                Children (8-11): <strong>{filters.kids8to11}</strong>
+                Children (9-11): <strong>{filters.kids8to11}</strong>
               </Typography>
               <Typography variant="medium">
               Adults&Children (12-17): <strong>{filters.adults}</strong>
               </Typography>
             </div>
-            <div className="order-first mb-4 sm:mb-0 sm:order-none">
+            <div className="order-first mb-2 mt-3 sm:my-1 sm:order-none">
               <Link to={`/`}>
                 <Button variant="outlined">Back</Button>
               </Link>
