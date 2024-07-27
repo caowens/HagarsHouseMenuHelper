@@ -97,10 +97,10 @@ export default function Landing(params) {
             </div>
             <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
-                Children (Ages 4-7)
+                Children (Ages 4-8)
               </Typography>
               <Input
-                placeholder="# of children 4-7s"
+                placeholder="# of children 4-8"
                 value={filters.kids4to7}
                 onChange={(e) => handleChange("kids4to7", e.target.value)}
                 className="!border-t-blue-gray-200 text-center focus:!border-t-gray-900"
@@ -111,10 +111,10 @@ export default function Landing(params) {
             </div>
             <div className="flex flex-col gap-2 items-center">
               <Typography className="w-full" variant="h6">
-                Children (Ages 8-11)
+                Children (Ages 9-11)
               </Typography>
               <Input
-                placeholder="# of children 8-11"
+                placeholder="# of children 9-11"
                 value={filters.kids8to11}
                 onChange={(e) => handleChange("kids8to11", e.target.value)}
                 className="!border-t-blue-gray-200 text-center focus:!border-t-gray-900"
@@ -143,7 +143,7 @@ export default function Landing(params) {
       </div>
 
       <Button className="sm:mt-8 mt-16" onClick={handleSearch}>
-        Find menus
+        Find menu
       </Button>
     </div>
   );

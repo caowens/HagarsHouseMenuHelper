@@ -14,7 +14,7 @@ function App() {
   }, [isMdUp]);
 
   return (
-    <div className="flex justify-center items-center px-30 flex-col text-center">  { /* This is tailwind */ }
+    <div className="flex justify-center items-center px-30 flex-col bg-orange-50 text-center">  { /* This is tailwind */ }
       <div className="flex flex-col sm:flex-row justify-center bg-image w-full h-auto py-10">
         <div className="  self-center sm:ml-20 ">
           <img src={dcmlog}/>
