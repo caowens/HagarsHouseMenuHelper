@@ -78,10 +78,10 @@ export default function Menus() {
   };
 
   return (
-    <div className="flex flex-col mt-0">
-      <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px] px-0 " >
+    <div className="flex flex-col mt-0 bg-orange-50 w-full place-items-center h-screen">
+      <div className="flex justify-center align-center place-items-start sm:h-[80vh] w-auto xl:w-[1100px]" >
         <div className="w-full flex flex-col">
-          <div className="flex flex-col sm:flex-row w-full sm:border-b-[0px] sm:my-3 justify-between border-black sm:h-12 bg-orange-50">
+          <div className="flex flex-col sm:flex-row w-full sm:border-b-[0px] sm:my-3 justify-between border-black sm:h-12">
             <div className="w-4 sm:block hidden" />
             <div className="sm:w-auto h-auto text-center justify-center sm:justify-start px-2 flex items-center gap-4 sm:gap-10 ">
               <Typography variant="medium">
